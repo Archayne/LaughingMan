@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         square.alt = "catch the Laughing Man!"
         square.className = "square";
         box.appendChild(square);
+        //MOUSE OVER AND MOUSE OUT EVENTS
     }
     Array.from(box.children).forEach((element)=>{
         const parent = element.parentElement;
@@ -44,3 +45,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }, TIMER_SPEED)
     });
 });
+
+function newColor(){
+    let r = Math.floor(Math.random()*256);
+    let g = Math.floor(Math.random()*256);
+    let b = Math.floor(Math.random()*256);
+    return `rgb(${r},${g},${b})`;
+}
