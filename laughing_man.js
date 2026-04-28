@@ -1,23 +1,17 @@
 const SQUARE_COUNT = 100;
 const TIMER_SPEED = 16.6;
 const SPEED = 5;
+
 document.addEventListener('DOMContentLoaded', ()=>{
     document.querySelector("#square").addEventListener("click", ()=>{
         alert("OMG YOU CLICKED ME!");
     });
+    
 
     let box = document.querySelector('#box');
 
-    for(let i = 0; i < SQUARE_COUNT; i++){
-        //Make the element, but its not anything or on the page
-        let square = document.createElement('img');
-        //set the attributes of that element
-        square.src = "laughing_man.jpg";
-        square.alt = "catch the Laughing Man!"
-        square.className = "square";
-        box.appendChild(square);
-        //MOUSE OVER AND MOUSE OUT EVENTS
-    }
+    createSquares();
+
     Array.from(box.children).forEach((element)=>{
         const parent = element.parentElement;
         const maxX = parent.clientWidth - element.clientWidth;
@@ -43,6 +37,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
             element.style.top = y + "px";
                 
             }, TIMER_SPEED)
+
+            document.querySelector(".square").addEventListener("mouseover", ()=>{
+            //alert("YOU MOUSED OVER ME");
+            square.src = "orochimaru.jpg";
+            box.appendChild(square);
+        });
     });
 });
 
@@ -51,4 +51,19 @@ function newColor(){
     let g = Math.floor(Math.random()*256);
     let b = Math.floor(Math.random()*256);
     return `rgb(${r},${g},${b})`;
+}
+
+function createSquares(){
+    for(let i = 0; i < SQUARE_COUNT; i++){
+        //Make the element, but its not anything or on the page
+        let square = document.createElement('img');
+        //set the attributes of that element
+        square.src = "laughing_man.jpg";
+        square.alt = "catch the Laughing Man!"
+        square.className = "square";
+        box.appendChild(square);
+        //MOUSE OVER AND MOUSE OUT EVENTS
+        
+    }
+
 }
