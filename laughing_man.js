@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
         laughingMan.style.backgroundColor = newColor();
     })
     
-
     let box = document.querySelector('#box');
-
     createSquares();
 
     Array.from(box.children).forEach((element)=>{
+
+        Array.from(box.children).forEach((element)=>{
         element.addEventListener("mouseover", ()=>{
             element.src = "orochimaru.jpg";
         });
@@ -25,10 +25,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             element.src = "laughing_man.jpg";
         });
     });
-    
 
-
-    Array.from(box.children).forEach((element)=>{
         const parent = element.parentElement;
         const maxX = parent.clientWidth - element.clientWidth;
         const maxY = parent.clientHeight - element.clientHeight;
@@ -39,9 +36,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let x = parseInt(element.style.left) || 225;
         let y = parseInt(element.style.top) || 175;
         setInterval(()=>{
-
-            
-
             if(x <= 0 || x >= maxX){
                 dx *= -1;
                 element.style.backgroundColor = newColor();
