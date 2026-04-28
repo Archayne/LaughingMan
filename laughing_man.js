@@ -40,11 +40,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let y = parseInt(element.style.top) || 175;
         setInterval(()=>{
 
+            
+
             if(x <= 0 || x >= maxX){
                 dx *= -1;
+                element.style.backgroundColor = newColor();
+                element.style.border = "3px solid " + newColor();
             }
             if(y <= 0 || y >= maxY){
                 dy *= -1;
+                element.style.backgroundColor = newColor();
+                element.style.border = "3px solid " + newColor();
             }
             x += dx;
             y += dy;
@@ -58,7 +64,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
 });
 
-function newColor(){
+//Does this need to be 'getColor?' we made this in class already
+function newColor(){ 
     let r = Math.floor(Math.random()*256);
     let g = Math.floor(Math.random()*256);
     let b = Math.floor(Math.random()*256);
