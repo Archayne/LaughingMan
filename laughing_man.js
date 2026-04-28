@@ -1,4 +1,4 @@
-const SQUARE_COUNT = 100;
+const SQUARE_COUNT = 2;
 const TIMER_SPEED = 16.6;
 const SPEED = 5;
 
@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     document.querySelector("#square").addEventListener("click", ()=>{
         alert("OMG YOU CLICKED ME!");
     });
+
+    let laughingMan = document.querySelector("#square");
+    document.querySelector("#square").addEventListener("mouseover", ()=>{
+        laughingMan.style.backgroundColor = newColor();
+    })
     
 
     let box = document.querySelector('#box');
@@ -20,6 +25,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             element.src = "laughing_man.jpg";
         });
     });
+    
 
 
     Array.from(box.children).forEach((element)=>{
