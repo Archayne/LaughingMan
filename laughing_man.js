@@ -13,6 +13,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
     createSquares();
 
     Array.from(box.children).forEach((element)=>{
+        element.addEventListener("mouseover", ()=>{
+            element.src = "orochimaru.jpg";
+        });
+        element.addEventListener("mouseout", ()=>{
+            element.src = "laughing_man.jpg";
+        });
+    });
+
+
+    Array.from(box.children).forEach((element)=>{
         const parent = element.parentElement;
         const maxX = parent.clientWidth - element.clientWidth;
         const maxY = parent.clientHeight - element.clientHeight;
@@ -38,11 +48,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 
             }, TIMER_SPEED)
 
-            document.querySelector(".square").addEventListener("mouseover", ()=>{
-            //alert("YOU MOUSED OVER ME");
-            square.src = "orochimaru.jpg";
-            box.appendChild(square);
-        });
+            
     });
 });
 
@@ -63,7 +69,5 @@ function createSquares(){
         square.className = "square";
         box.appendChild(square);
         //MOUSE OVER AND MOUSE OUT EVENTS
-        
     }
-
 }
